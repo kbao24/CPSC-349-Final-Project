@@ -247,6 +247,10 @@
 .app-header {
   background: linear-gradient(90deg, #1d3557, #457b9d);
   padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
 }
 
 .app-header-inner {
