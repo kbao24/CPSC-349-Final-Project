@@ -1,7 +1,7 @@
 /* --- Existing styles --- */
 
 .header {
-  background-color: #562b81; /* fallback if you still use header alone */
+  background-color: #457b9d; /* fallback if you still use header alone */
 }
 
 .form-image {
@@ -10,10 +10,6 @@
 
 .input-height {
   height: 2.5rem;
-}
-
-.purple-outline {
-  outline-color: #562b81;
 }
 
 .input-b-radius {
@@ -37,16 +33,38 @@
 .form-link {
   text-decoration: none;
   outline: none;
-  background-color: #562b81;
+  background-color: #457b9d;
   padding: 0.5rem 1rem;
   border-radius: 5px;
 }
 
 .delete-entry-button {
-  border: none;
-  text-decoration: underline;
-  color: red;
+  border: 1px solid #dc2626;
+  background-color: white;
+  color: #dc2626;
+  padding: 0.4rem 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease,
+              color 0.2s ease,
+              transform 0.15s ease,
+              border-color 0.2s ease;
 }
+
+/* Hover effect — similar to nav buttons */
+.delete-entry-button:hover {
+  background-color: #dc2626;
+  color: white;
+  transform: translateY(-2px);
+  border-color: #b91c1c;
+}
+
+/* When clicking (active state) */
+.delete-entry-button:active {
+  transform: translateY(0);
+}
+
 
 .modal-container {
   position: fixed;
@@ -273,4 +291,25 @@
 
 .nav-btn-active-outline {
   background-color: rgba(241, 250, 238, 0.15);
+}
+
+.save-button {
+  background-color: #457b9d; /* default purple */
+  color: white;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.save-button:hover {
+  background-color: #e76f51;
+  transform: translateY(-2px);
+}
+
+.save-button:active {
+  transform: translateY(0);
 }

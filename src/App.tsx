@@ -258,9 +258,10 @@ function App() {
                 >
                   Delete Entry
                 </button>
-                <button className="input-b-radius text-padding purple-background white-text">
+                <button className="save-button">
                   SAVE
                 </button>
+
               </div>
             </div>
           </form>
@@ -288,28 +289,28 @@ function App() {
                 <p>No entries yet.</p>
               ) : (
                 <ul className="entry-ul" id="entryUl">
-  {entries.map((entry) => (
-    <li key={entry.entryId} className="entry-card">
-      <img
-        className="entry-card-image"
-        src={entry.photoUrl}
-        alt={entry.title}
-      />
+                  {entries.map((entry) => (
+                    <li key={entry.entryId} className="entry-card">
+                      <img
+                        className="entry-card-image"
+                        src={entry.photoUrl}
+                        alt={entry.title}
+                      />
 
-      <div className="entry-card-body">
-        <div className="entry-card-header">
-          <h3 className="entry-title">{entry.title}</h3>
-          <i
-            className="fa-solid fa-pencil"
-            onClick={() => startEdit(entry)}
-          ></i>
-        </div>
+                      <div className="entry-card-body">
+                        <div className="entry-card-header">
+                          <h3 className="entry-title">{entry.title}</h3>
+                          <i
+                            className="fa-solid fa-pencil"
+                            onClick={() => startEdit(entry)}
+                          ></i>
+                        </div>
 
-        <p className="entry-notes">{entry.notes}</p>
-      </div>
-    </li>
-  ))}
-</ul>
+                        <p className="entry-notes">{entry.notes}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
 
               )}
             </div>
