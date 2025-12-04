@@ -132,6 +132,39 @@ function App() {
     );
   }
 
+  function handleImageDrop(e: React.DragEvent<HTMLDivElement>) {
+    e.preventDefault();
+    setIsDragging(false);
+
+    const file = e.dataTransfer.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result;
+      if (typeof result === 'string') {
+        setFormURL(result); // store base64 data URL
+        setFormErrors((prev) => ({ ...prev, photoUrl: '' }));
+      }
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function handleDragOver(e: React.DragEvent<HTMLDivElement>) {
+    e.preventDefault();
+    setIsDragging(true);
+  }
+
+  function handleDragLeave(e: React.DragEvent<HTMLDivElement>) {
+    e.preventDefault();
+    setIsDragging(false);
+  }
+
+
 
   return (
     <div className={darkMode ? 'app app-dark' : 'app'}>
@@ -356,17 +389,32 @@ function App() {
           <form id="entryForm" onSubmit={handleSubmit}>
             <div className="row margin-bottom-1">
               <div className="column-half">
-                <img
-                  className="input-b-radius form-image"
-                  id="formImage"
-                  src={
-                    formURL
-                      ? formURL
-                      : 'images/placeholder-image-square.jpg'
+                <div
+                  className={
+                    'dropzone' + (isDragging ? ' dropzone-dragging' : '')
                   }
-                  alt="image of entry"
-                />
+                  onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
+                  onDrop={handleImageDrop}
+                >
+                  <p className="dropzone-text">
+                    Drag &amp; drop an image here,
+                    <br />
+                    or paste a URL in the field.
+                  </p>
+                  <img
+                    className="dropzone-image"
+                    id="formImage"
+                    src={
+                      formURL
+                        ? formURL
+                        : '/images/placeholder-image-square.jpeg'
+                    }
+                    alt="image of entry"
+                  />
+                </div>
               </div>
+
               <div className="column-half">
                 <label
                   className="margin-bottom-1 d-block"

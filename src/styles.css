@@ -657,18 +657,6 @@
   background-color: #0f172a;
 }
 
-/* === Validation error styles === */
-
-.input-error {
-  border-color: #dc2626 !important;
-  outline-color: #dc2626 !important;
-}
-
-.input-error-text {
-  margin: 0.15rem 0 0.5rem;
-  font-size: 0.8rem;
-  color: #b91c1c;
-}
 
 /* Dark mode tweak */
 .app-dark .input-b-color {
