@@ -26,12 +26,6 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
-  const [formErrors, setFormErrors] = useState({
-    title: '',
-    photoUrl: '',
-    notes: '',
-  });
-
   const [isDragging, setIsDragging] = useState(false);
 
 
@@ -148,7 +142,6 @@ function App() {
       const result = reader.result;
       if (typeof result === 'string') {
         setFormURL(result); // store base64 data URL
-        setFormErrors((prev) => ({ ...prev, photoUrl: '' }));
       }
     };
     reader.readAsDataURL(file);
