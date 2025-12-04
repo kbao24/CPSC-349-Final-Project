@@ -96,58 +96,58 @@ function App() {
     <>
       {/* HEADER */}
       <header className="header app-header">
-  <div className="container">
-    <div className="row">
-      <div className="column-full app-header-inner">
-        {/* Brand / Logo */}
-        <div className="brand">
-          <div className="brand-mark">CJ</div>
-          <span className="brand-text">Code Journal</span>
+        <div className="container">
+          <div className="row">
+            <div className="column-full app-header-inner">
+              {/* Brand / Logo */}
+              <div className="brand">
+                <div className="brand-mark">CJ</div>
+                <span className="brand-text">Code Journal</span>
+              </div>
+
+              {/* Nav buttons */}
+              <nav className="main-nav">
+                <button
+                  className={
+                    'nav-btn' + (view === 'home' ? ' nav-btn-active' : '')
+                  }
+                  onClick={() => {
+                    setView('home');
+                    setEditingEntryId(null);
+                  }}
+                >
+                  Home
+                </button>
+
+                <button
+                  className={
+                    'nav-btn' + (view === 'entries' ? ' nav-btn-active' : '')
+                  }
+                  onClick={() => {
+                    setView('entries');
+                    setEditingEntryId(null);
+                  }}
+                >
+                  Entries
+                </button>
+
+                <button
+                  className={
+                    'nav-btn nav-btn-outline' +
+                    (view === 'login' ? ' nav-btn-active-outline' : '')
+                  }
+                  onClick={() => {
+                    setView('login');
+                    setEditingEntryId(null);
+                  }}
+                >
+                  Login
+                </button>
+              </nav>
+            </div>
+          </div>
         </div>
-
-        {/* Nav buttons */}
-        <nav className="main-nav">
-          <button
-            className={
-              'nav-btn' + (view === 'home' ? ' nav-btn-active' : '')
-            }
-            onClick={() => {
-              setView('home');
-              setEditingEntryId(null);
-            }}
-          >
-            Home
-          </button>
-
-          <button
-            className={
-              'nav-btn' + (view === 'entries' ? ' nav-btn-active' : '')
-            }
-            onClick={() => {
-              setView('entries');
-              setEditingEntryId(null);
-            }}
-          >
-            Entries
-          </button>
-
-          <button
-            className={
-              'nav-btn nav-btn-outline' +
-              (view === 'login' ? ' nav-btn-active-outline' : '')
-            }
-            onClick={() => {
-              setView('login');
-              setEditingEntryId(null);
-            }}
-          >
-            Login
-          </button>
-        </nav>
-      </div>
-    </div>
-  </div>
-</header>
+      </header>
 
 
       <main>
