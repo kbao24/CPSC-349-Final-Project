@@ -92,6 +92,37 @@ function App() {
     setView('entries');
   }
 
+    const heroSlides = [
+    {
+      title: 'Capture your coding thoughts',
+      text: 'Log bugs, breakthroughs, and notes before you forget them.',
+      imageUrl: 'images/placeholder-image-square.jpg',
+    },
+    {
+      title: 'Stay organized over time',
+      text: 'Scroll back through your entries to see how your skills grow.',
+      imageUrl: 'images/placeholder-image-square.jpg',
+    },
+    {
+      title: 'All your entries in one place',
+      text: 'Create, read, update, and delete blog-style posts in seconds.',
+      imageUrl: 'images/placeholder-image-square.jpg',
+    },
+  ];
+
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  function nextSlide() {
+    setHeroIndex((prev) => (prev + 1) % heroSlides.length);
+  }
+
+  function prevSlide() {
+    setHeroIndex((prev) =>
+      prev === 0 ? heroSlides.length - 1 : prev - 1
+    );
+  }
+
+
   return (
     <>
       {/* HEADER */}
@@ -153,19 +184,143 @@ function App() {
       <main>
         {/* HOME VIEW */}
         {view === 'home' && (
-          <div className="container" data-view="home">
-            <div className="row">
-              <div className="column-full">
-                <h1>Welcome to Code Journal</h1>
-                <p>
-                  This is your personal space to record coding notes, ideas, and
-                  experiments. Use the <strong>Entries</strong> tab to view your
-                  journal or click <strong>NEW</strong> to add a fresh post.
-                </p>
-              </div>
+  <div className="container home-container" data-view="home">
+    {/* HERO SECTION */}
+    <section className="home-hero row">
+      {/* Left side: hero text */}
+      <div className="column-half hero-left">
+        <p className="hero-kicker">Welcome to Code Journal</p>
+        <h1 className="hero-title">
+          A simple place to track your coding ideas, experiments, and progress.
+        </h1>
+        <p className="hero-subtitle">
+          Create blog-style entries for bugs you solved, concepts you learned,
+          or projects you&apos;re building. Come back later to review and refine.
+        </p>
+        <div className="hero-actions">
+          <button
+            className="hero-btn hero-btn-primary"
+            onClick={() => {
+              setEditingEntryId(null);
+              resetForm();
+              setView('entry-form');
+            }}
+          >
+            Start a new entry
+          </button>
+          <button
+            className="hero-btn hero-btn-secondary"
+            onClick={() => setView('entries')}
+          >
+            View your entries
+          </button>
+        </div>
+      </div>
+
+      {/* Right side: simple image carousel */}
+      <div className="column-half hero-right">
+        <div className="hero-carousel">
+          <div className="hero-slide">
+            <img
+              src={heroSlides[heroIndex].imageUrl}
+              alt={heroSlides[heroIndex].title}
+              className="hero-slide-image"
+            />
+            <div className="hero-slide-caption">
+              <h3>{heroSlides[heroIndex].title}</h3>
+              <p>{heroSlides[heroIndex].text}</p>
             </div>
           </div>
-        )}
+
+          <div className="hero-carousel-controls">
+            <button
+              type="button"
+              className="hero-carousel-btn"
+              onClick={prevSlide}
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              className="hero-carousel-btn"
+              onClick={nextSlide}
+            >
+              ›
+            </button>
+          </div>
+
+          <div className="hero-dots">
+            {heroSlides.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={
+                  'hero-dot' + (index === heroIndex ? ' hero-dot-active' : '')
+                }
+                onClick={() => setHeroIndex(index)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* FEATURES SECTION */}
+    <section className="features-section">
+      <h2 className="features-title">What you can do</h2>
+      <p className="features-subtitle">
+        Code Journal is built around a simple, powerful set of features:
+      </p>
+
+      <div className="features-grid">
+        <div className="feature-card">
+          <div className="feature-icon">
+            <i className="fa-solid fa-pen-to-square"></i>
+          </div>
+          <h3 className="feature-heading">Create entries</h3>
+          <p className="feature-text">
+            Quickly add new blog-style posts with a title, image, and notes
+            about what you learned or built.
+          </p>
+        </div>
+
+        <div className="feature-card">
+          <div className="feature-icon">
+            <i className="fa-solid fa-book-open"></i>
+          </div>
+          <h3 className="feature-heading">Read your journal</h3>
+          <p className="feature-text">
+            Browse your previous entries in a clean, card-based layout to
+            revisit old ideas and patterns.
+          </p>
+        </div>
+
+        <div className="feature-card">
+          <div className="feature-icon">
+            <i className="fa-solid fa-rotate"></i>
+          </div>
+          <h3 className="feature-heading">Update posts</h3>
+          <p className="feature-text">
+            Edit any entry when you learn a better approach or want to add more
+            context to your notes.
+          </p>
+        </div>
+
+        <div className="feature-card">
+          <div className="feature-icon feature-icon-danger">
+            <i className="fa-solid fa-trash"></i>
+          </div>
+          <h3 className="feature-heading">Delete entries</h3>
+          <p className="feature-text">
+            Clean up your journal by removing entries that you no longer need,
+            with a safety confirmation step.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+)}
+
 
         {/* ENTRY FORM VIEW */}
         <div
@@ -323,24 +478,23 @@ function App() {
         <div
           id="modalContainer"
           className={
-            'modal-container d-flex justify-center align-center' +
-            (showModal ? '' : ' hidden')
+            'modal-container' + (showModal ? '' : ' hidden')
           }
         >
-          <div className="modal row">
-            <div className="column-full d-flex justify-center">
-              <p>Are you sure you want to delete this entry?</p>
-            </div>
-            <div className="column-full d-flex justify-between">
+          <div className="modal-card">
+            <p className="modal-text">
+              Are you sure you want to delete this entry?
+            </p>
+            <div className="modal-actions">
               <button
-                className="modal-button"
+                className="modal-button modal-button-secondary"
                 id="cancelButton"
                 onClick={() => setShowModal(false)}
               >
                 Cancel
               </button>
               <button
-                className="modal-button red-background white-text"
+                className="modal-button modal-button-danger"
                 id="confirmButton"
                 onClick={handleConfirmDelete}
               >
@@ -350,6 +504,7 @@ function App() {
           </div>
         </div>
       </article>
+
     </>
   );
 }
