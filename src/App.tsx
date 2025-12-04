@@ -273,10 +273,10 @@ function App() {
         >
           <div className="row">
             <div className="column-full d-flex justify-between align-center entry-title-row">
-              <h1>Entries</h1>
+              <h1>Your Entries</h1>
               {/* Purple NEW button like original */}
               <button onClick={() => startNewEntry()} className="new-button">
-                NEW
+                New Entry
               </button>
 
             </div>
@@ -288,36 +288,29 @@ function App() {
                 <p>No entries yet.</p>
               ) : (
                 <ul className="entry-ul" id="entryUl">
-                  {entries.map((entry) => (
-                    <li key={entry.entryId}>
-                      <div className="row">
-                        <div className="column-half entry-text">
-                          <img
-                            className="input-b-radius form-image"
-                            src={entry.photoUrl}
-                            alt={entry.title}
-                          />
-                        </div>
+  {entries.map((entry) => (
+    <li key={entry.entryId} className="entry-card">
+      <img
+        className="entry-card-image"
+        src={entry.photoUrl}
+        alt={entry.title}
+      />
 
-                        <div className="column-half">
-                          <div className="row">
-                            <div className="d-flex justify-between align-center entry-title-row">
-                              <h3 className="entry-title">{entry.title}</h3>
-                              <i
-                                className="fa-solid fa-pencil"
-                                onClick={() => startEdit(entry)}
-                              ></i>
+      <div className="entry-card-body">
+        <div className="entry-card-header">
+          <h3 className="entry-title">{entry.title}</h3>
+          <i
+            className="fa-solid fa-pencil"
+            onClick={() => startEdit(entry)}
+          ></i>
+        </div>
 
-                            </div>
-                          </div>
+        <p className="entry-notes">{entry.notes}</p>
+      </div>
+    </li>
+  ))}
+</ul>
 
-                          <p className="entry-notes">{entry.notes}</p>
-                        </div>
-                      </div>
-                    </li>
-
-                  ))}
-                </ul>
               )}
             </div>
           </div>
