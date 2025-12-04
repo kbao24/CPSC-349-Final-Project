@@ -1,7 +1,5 @@
-/* --- Existing styles --- */
-
 .header {
-  background-color: #457b9d; /* fallback if you still use header alone */
+  background-color: #457b9d; 
 }
 
 .form-image {
@@ -51,8 +49,6 @@
               transform 0.15s ease,
               border-color 0.2s ease;
 }
-
-/* Hover effect — similar to nav buttons */
 .delete-entry-button:hover {
   background-color: #dc2626;
   color: white;
@@ -60,16 +56,14 @@
   border-color: #b91c1c;
 }
 
-/* When clicking (active state) */
 .delete-entry-button:active {
   transform: translateY(0);
 }
 
-/* Backdrop */
 .modal-container {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 23, 42, 0.55); /* soft dark overlay */
+  background-color: rgba(15, 23, 42, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +71,6 @@
   z-index: 50;
 }
 
-/* Modal card */
 .modal-card {
   width: 100%;
   max-width: 420px;
@@ -90,7 +83,6 @@
   gap: 1.25rem;
 }
 
-/* Modal text */
 .modal-text {
   margin: 0;
   font-size: 1rem;
@@ -99,14 +91,12 @@
   text-align: center;
 }
 
-/* Button row */
 .modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
 }
 
-/* Base modal button */
 .modal-button {
   border-radius: 999px;
   padding: 0.45rem 1.1rem;
@@ -119,7 +109,6 @@
               box-shadow 0.2s ease;
 }
 
-/* Neutral / secondary (Cancel) */
 .modal-button-secondary {
   background-color: #f3f4f6;
   color: #111827;
@@ -130,7 +119,6 @@
   transform: translateY(-1px);
 }
 
-/* Danger / primary (Confirm) */
 .modal-button-danger {
   background-color: #dc2626;
   color: #ffffff;
@@ -147,7 +135,6 @@
   box-shadow: none;
 }
 
-/* Reset h3 margin inside the entry title row */
 .entry-title-row h3 {
   margin: 0;
   padding: 0;
@@ -158,10 +145,9 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem; /* space between cards */
+  gap: 2rem; 
 }
 
-/* Card container */
 .entry-card {
   background-color: #ffffff;
   border-radius: 10px;
@@ -171,19 +157,16 @@
   flex-direction: column;
 }
 
-/* Image at top of card */
 .entry-card-image {
   width: 100%;
   height: 220px;
   object-fit: cover;
 }
 
-/* Card text area */
 .entry-card-body {
   padding: 1rem 1.25rem 1.25rem;
 }
 
-/* Title row inside card */
 .entry-card-header {
   display: flex;
   align-items: center;
@@ -191,7 +174,6 @@
   margin-bottom: 0.35rem;
 }
 
-/* Pencil hover a bit nicer */
 .entry-card-header i {
   cursor: pointer;
   color: #457b9d;
@@ -203,7 +185,6 @@
   transform: translateY(-1px);
 }
 
-/* Keep your existing title/notes styles */
 .entry-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -215,14 +196,12 @@
   max-width: 100%;
 }
 
-/* Make it 1 column on smaller screens */
 @media screen and (max-width: 768px) {
   .entry-ul {
     grid-template-columns: 1fr;
   }
 }
 
-/* NEW entry button on Entries view */
 .new-button {
   background: linear-gradient(90deg, #1d3557, #457b9d);
   color: white;
@@ -244,14 +223,12 @@
   align-items: flex-start;
 }
 
-/* Ensure title + description share consistent spacing */
 .entry-text h3,
 .entry-text p {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* small, controlled gap between title row and notes */
 .entry-title-row {
   margin-bottom: 0.25rem;
 }
@@ -263,14 +240,10 @@
 
 .entry-notes {
   line-height: 1.4;
-  margin-top: 0;        /* keep them tight under the title row */
+  margin-top: 0;       
   max-width: 400px;
 }
 
-/* --- New header / nav styling --- */
-
-/* If you changed header to className="header app-header" in App.tsx,
-   this overrides the plain purple background above with a nicer gradient. */
 .app-header {
   background: linear-gradient(90deg, #1d3557, #457b9d);
   padding: 0.75rem 0;
@@ -282,7 +255,6 @@
   justify-content: space-between;
 }
 
-/* Brand on the left */
 .brand {
   display: flex;
   align-items: center;
@@ -308,14 +280,12 @@
   font-size: 1.1rem;
 }
 
-/* Nav buttons on the right */
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* space between Home / Entries / Login */
+  gap: 0.75rem;
 }
 
-/* Pill-style header buttons */
 .nav-btn {
   background: transparent;
   border: none;
@@ -333,13 +303,11 @@
   transform: translateY(-1px);
 }
 
-/* Filled style for selected tab (e.g. Home or Entries) */
 .nav-btn-active {
   background-color: #e76f51;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
-/* Outline style for Login button */
 .nav-btn-outline {
   border: 1px solid rgba(241, 250, 238, 0.7);
   background-color: transparent;
@@ -350,7 +318,7 @@
 }
 
 .save-button {
-  background-color: #457b9d; /* default purple */
+  background-color: #457b9d; 
   color: white;
   border: none;
   padding: 0.55rem 1.2rem;
@@ -370,14 +338,10 @@
   transform: translateY(0);
 }
 
-/* === Home layout === */
-
 .home-container {
   padding-top: 2rem;
   padding-bottom: 3rem;
 }
-
-/* HERO SECTION */
 
 .home-hero {
   margin-bottom: 3rem;
@@ -448,8 +412,6 @@
   transform: translateY(-1px);
 }
 
-/* HERO CAROUSEL */
-
 .hero-right {
   padding-left: 1rem;
   margin-bottom: 2rem;
@@ -496,8 +458,6 @@
   color: #e5e7eb;
 }
 
-/* Carousel controls */
-
 .hero-carousel-controls {
   display: flex;
   justify-content: space-between;
@@ -521,8 +481,6 @@
   transform: translateY(-1px);
 }
 
-/* Dots under carousel */
-
 .hero-dots {
   display: flex;
   justify-content: center;
@@ -543,8 +501,6 @@
   background-color: #1d3557;
   transform: scale(1.1);
 }
-
-/* FEATURES SECTION */
 
 .features-section {
   border-top: 1px solid #e5e7eb;
@@ -608,8 +564,6 @@
   line-height: 1.5;
   color: #4b5563;
 }
-
-/* Responsive tweaks */
 
 @media screen and (max-width: 768px) {
   .hero-left,
