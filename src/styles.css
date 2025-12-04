@@ -94,7 +94,7 @@
 
 /* NEW entry button on Entries view */
 .new-button {
-  background: linear-gradient(180deg, #6c3eb8, #4d2477);
+  background: linear-gradient(90deg, #1d3557, #457b9d);
   color: white;
   border: none;
   padding: 10px 18px;
@@ -106,7 +106,7 @@
 }
 
 .new-button:hover {
-  background: linear-gradient(180deg, #8250d0, #5a2e8b);
+  background: #e76f51;
   transform: translateY(-2px);
 }
 
@@ -199,7 +199,7 @@
 }
 
 .nav-btn:hover {
-  background-color: rgba(241, 250, 238, 0.15);
+  background-color: #e76f51;
   transform: translateY(-1px);
 }
 
