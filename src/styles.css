@@ -1,5 +1,7 @@
+/* --- Existing styles --- */
+
 .header {
-  background-color: #562b81;
+  background-color: #562b81; /* fallback if you still use header alone */
 }
 
 .form-image {
@@ -76,6 +78,7 @@
   font-size: 1.3rem;
 }
 
+/* Reset h3 margin inside the entry title row */
 .entry-title-row h3 {
   margin: 0;
   padding: 0;
@@ -89,6 +92,7 @@
   border-radius: 6px;
 }
 
+/* NEW entry button on Entries view */
 .new-button {
   background: linear-gradient(180deg, #6c3eb8, #4d2477);
   color: white;
@@ -106,11 +110,10 @@
   transform: translateY(-2px);
 }
 
-
-
 .entry-ul li .row {
   align-items: flex-start;
 }
+
 /* Ensure title + description share consistent spacing */
 .entry-text h3,
 .entry-text p {
@@ -118,9 +121,9 @@
   margin-bottom: 0;
 }
 
-/* we control spacing ourselves: */
+/* small, controlled gap between title row and notes */
 .entry-title-row {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .entry-title {
@@ -130,28 +133,88 @@
 
 .entry-notes {
   line-height: 1.4;
-  margin-top: 0.5rem;
+  margin-top: 0;        /* keep them tight under the title row */
   max-width: 400px;
 }
 
+/* --- New header / nav styling --- */
+
+/* If you changed header to className="header app-header" in App.tsx,
+   this overrides the plain purple background above with a nicer gradient. */
+.app-header {
+  background: linear-gradient(90deg, #1d3557, #457b9d);
+  padding: 0.75rem 0;
+}
+
+.app-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand on the left */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background-color: #f1faee;
+  color: #1d3557;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.brand-text {
+  color: #f1faee;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Nav buttons on the right */
 .main-nav {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem; /* space between Home / Entries / Login */
 }
 
-.nav-link {
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  opacity: 0.9;
+/* Pill-style header buttons */
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: #f1faee;
+  font-size: 0.95rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease,
+    box-shadow 0.2s ease;
 }
 
-.nav-link:hover {
-  text-decoration: underline;
-  opacity: 1;
+.nav-btn:hover {
+  background-color: rgba(241, 250, 238, 0.15);
+  transform: translateY(-1px);
 }
 
-.nav-link-active {
-  background-color: rgba(255, 255, 255, 0.2);
+/* Filled style for selected tab (e.g. Home or Entries) */
+.nav-btn-active {
+  background-color: #e76f51;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Outline style for Login button */
+.nav-btn-outline {
+  border: 1px solid rgba(241, 250, 238, 0.7);
+  background-color: transparent;
+}
+
+.nav-btn-active-outline {
+  background-color: rgba(241, 250, 238, 0.15);
 }

@@ -95,57 +95,60 @@ function App() {
   return (
     <>
       {/* HEADER */}
-      <header className="header purple-background">
-        <div className="container">
-          <div className="row">
-            <div className="column-full d-flex align-center">
-              <h1 className="white-text">Code Journal</h1>
-              <nav className="main-nav">
-                <a
-                  href="#"
-                  className={
-                    'nav-link white-text' + (view === 'home' ? ' nav-link-active' : '')
-                  }
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setView('home');
-                    setEditingEntryId(null);
-                  }}
-                >
-                  Home
-                </a>
-                <a
-                  href="#"
-                  className={
-                    'nav-link white-text' + (view === 'entries' ? ' nav-link-active' : '')
-                  }
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setView('entries');
-                    setEditingEntryId(null);
-                  }}
-                >
-                  Entries
-                </a>
-                <a
-                  href="#"
-                  className={
-                    'nav-link white-text' + (view === 'login' ? ' nav-link-active' : '')
-                  }
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setView('login');
-                    setEditingEntryId(null);
-                  }}
-                >
-                  Login
-                </a>
-              </nav>
-
-            </div>
-          </div>
+      <header className="header app-header">
+  <div className="container">
+    <div className="row">
+      <div className="column-full app-header-inner">
+        {/* Brand / Logo */}
+        <div className="brand">
+          <div className="brand-mark">CJ</div>
+          <span className="brand-text">Code Journal</span>
         </div>
-      </header>
+
+        {/* Nav buttons */}
+        <nav className="main-nav">
+          <button
+            className={
+              'nav-btn' + (view === 'home' ? ' nav-btn-active' : '')
+            }
+            onClick={() => {
+              setView('home');
+              setEditingEntryId(null);
+            }}
+          >
+            Home
+          </button>
+
+          <button
+            className={
+              'nav-btn' + (view === 'entries' ? ' nav-btn-active' : '')
+            }
+            onClick={() => {
+              setView('entries');
+              setEditingEntryId(null);
+            }}
+          >
+            Entries
+          </button>
+
+          <button
+            className={
+              'nav-btn nav-btn-outline' +
+              (view === 'login' ? ' nav-btn-active-outline' : '')
+            }
+            onClick={() => {
+              setView('login');
+              setEditingEntryId(null);
+            }}
+          >
+            Login
+          </button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
 
       <main>
         {/* HOME VIEW */}
