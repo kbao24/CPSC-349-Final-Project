@@ -12,17 +12,14 @@ type View = 'home' | 'entries' | 'entry-form' | 'login';
 
 
 function App() {
-  // Load entries from localStorage (like data.js)
   const [entries, setEntries] = useState<Entry[]>(() => readEntries());
   const [view, setView] = useState<View>('home');
   const [editingEntryId, setEditingEntryId] = useState<number | null>(null);
 
-  // Form fields
   const [formTitle, setFormTitle] = useState('');
   const [formURL, setFormURL] = useState('');
   const [formNotes, setFormNotes] = useState('');
 
-  // Delete modal
   const [showModal, setShowModal] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
@@ -56,16 +53,14 @@ function App() {
     e.preventDefault();
 
     if (!isEditing) {
-      // NEW ENTRY
       const unsaved: UnsavedEntry = {
         title: formTitle,
         notes: formNotes,
         photoUrl: formURL,
       };
-      const saved = addEntry(unsaved); // writes to localStorage
-      setEntries((prev) => [saved, ...prev]); // unshift
+      const saved = addEntry(unsaved); 
+      setEntries((prev) => [saved, ...prev]); 
     } else {
-      // EDIT EXISTING ENTRY
       const updated: Entry = {
         entryId: editingEntryId!,
         title: formTitle,
@@ -141,7 +136,7 @@ function App() {
     reader.onload = () => {
       const result = reader.result;
       if (typeof result === 'string') {
-        setFormURL(result); // store base64 data URL
+        setFormURL(result);
       }
     };
     reader.readAsDataURL(file);
@@ -366,6 +361,63 @@ function App() {
             </section>
           </div>
         )}
+        {/* LOGIN VIEW */}
+        {view === 'login' && (
+          <div className="login-page" data-view="login">
+            <div className="login-card">
+              <h2 className="login-title">Sign in to Code Journal</h2>
+              <p className="login-subtitle">
+                Welcome back! Please sign in to continue.
+              </p>
+
+              {/* Google button – UI only */}
+              <button
+                type="button"
+                className="login-google-btn"
+                onClick={() => {
+                  // For now just pretend login succeeded:
+                  setView('entries');
+                }}
+              >
+                <span className="login-google-icon">G</span>
+                <span>Continue with Google</span>
+              </button>
+
+              <div className="login-divider">
+                <span>or</span>
+              </div>
+
+              <div className="login-field">
+                <label htmlFor="loginEmail">Email address</label>
+                <input
+                  id="loginEmail"
+                  type="email"
+                  placeholder="you@example.com"
+                  className="login-input"
+                />
+              </div>
+
+              <button
+                type="button"
+                className="login-submit-btn"
+                onClick={() => setView('entries')}
+              >
+                Continue
+              </button>
+
+              <p className="login-footer">
+                Don&apos;t have an account?{' '}
+                <button
+                  type="button"
+                  className="login-link"
+                  onClick={() => setView('entry-form')}
+                >
+                  Sign up
+                </button>
+              </p>
+            </div>
+          </div>
+        )}
 
 
         {/* ENTRY FORM VIEW */}
@@ -491,7 +543,7 @@ function App() {
           <div className="row">
             <div className="column-full d-flex justify-between align-center entry-title-row">
               <h1>Your Entries</h1>
-              {/* Purple NEW button like original */}
+              {/* New Entry Button */}
               <button onClick={() => startNewEntry()} className="new-button">
                 New Entry
               </button>

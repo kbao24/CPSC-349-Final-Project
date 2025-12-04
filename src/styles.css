@@ -590,8 +590,6 @@
   }
 }
 
-/* === App wrapper for light / dark === */
-
 .app {
   min-height: 100vh;
   background-color: #f0f0f0;
@@ -615,8 +613,6 @@
   background-color: #020617;
   color: #e5e7eb;
 }
-
-/* === Drag & drop image area === */
 
 .dropzone {
   border: 2px dashed #cbd5f5;
@@ -647,7 +643,6 @@
   transform: translateY(-2px);
 }
 
-/* Dark mode dropzone tweak */
 .app-dark .dropzone {
   background-color: #020617;
   border-color: #475569;
@@ -657,20 +652,16 @@
   background-color: #0f172a;
 }
 
-
-/* Dark mode tweak */
 .app-dark .input-b-color {
   background-color: #020617;
   color: #e5e7eb;
   border-color: #4b5563;
 }
 
-/* Save & delete buttons already styled; they will inherit dark text correctly */
 .app-dark .save-button {
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.6);
 }
 
-/* You can also invert entries cards in dark mode if you want: */
 .app-dark .entry-card {
   background-color: #020617;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.9);
@@ -681,14 +672,12 @@
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.9);
 }
 
-/* ==== Dark-mode tweaks for homepage text ==== */
-
 .app-dark .hero-kicker {
-  color: #93c5fd; /* soft blue accent */
+  color: #93c5fd; 
 }
 
 .app-dark .hero-title {
-  color: #f9fafb; /* near-white */
+  color: #f9fafb;
 }
 
 .app-dark .hero-subtitle {
@@ -725,10 +714,8 @@
   color: #fecaca;
 }
 
-/* ==== Dark-mode tweaks for hero carousel ==== */
-
 .app-dark .hero-carousel {
-  background-color: #020617; /* deep navy */
+  background-color: #020617; 
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
 }
 
@@ -762,3 +749,205 @@
   background-color: #e5e7eb;
 }
 
+.login-page {
+  min-height: calc(100vh - 4.5rem); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.login-card {
+  width: 360px;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+  padding: 2.25rem 2rem 2rem;
+  text-align: left;
+}
+
+.login-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  color: #111827;
+}
+
+.login-subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.login-google-btn {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  padding: 0.55rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  background-color: #f9fafb;
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.1s ease;
+}
+
+.login-google-btn:hover {
+  background-color: #f3f4f6;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
+  transform: translateY(-1px);
+}
+
+.login-google-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #4285f4, #ea4335, #fbbc05, #34a853);
+  display: inline-block;
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin: 1.3rem 0;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.login-field label {
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+.login-input {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* Continue button */
+.login-submit-btn {
+  width: 100%;
+  border-radius: 999px;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #4b5563, #111827);
+  color: #f9fafb;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease,
+    transform 0.1s ease;
+}
+
+.login-submit-btn:hover {
+  background: linear-gradient(135deg, #6b7280, #020617);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Footer text */
+.login-footer {
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+.login-link {
+  border: none;
+  background: none;
+  color: #3b82f6;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.app-dark .login-card {
+  background: #020617;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+  border: 1px solid #1f2937;
+}
+
+.app-dark .login-title {
+  color: #f9fafb;
+}
+
+.app-dark .login-subtitle {
+  color: #9ca3af;
+}
+
+.app-dark .login-google-btn {
+  background-color: #020617;
+  border-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.app-dark .login-google-btn:hover {
+  background-color: #020617;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.9);
+}
+
+.app-dark .login-divider {
+  color: #6b7280;
+}
+
+.app-dark .login-divider::before,
+.app-dark .login-divider::after {
+  background-color: #1f2937;
+}
+
+.app-dark .login-field label {
+  color: #9ca3af;
+}
+
+.app-dark .login-input {
+  background-color: #020617;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+.app-dark .login-input::placeholder {
+  color: #6b7280;
+}
+
+.app-dark .login-footer {
+  color: #9ca3af;
+}
+
+.app-dark .login-link {
+  color: #93c5fd;
+}
