@@ -24,6 +24,16 @@ function App() {
 
   // Delete modal
   const [showModal, setShowModal] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const [formErrors, setFormErrors] = useState({
+    title: '',
+    photoUrl: '',
+    notes: '',
+  });
+
+  const [isDragging, setIsDragging] = useState(false);
+
 
   const isEditing = editingEntryId !== null;
   const formHeading = isEditing ? 'Edit Entry' : 'New Entry';
@@ -124,7 +134,7 @@ function App() {
 
 
   return (
-    <>
+    <div className={darkMode ? 'app app-dark' : 'app'}>
       {/* HEADER */}
       <header className="header app-header">
         <div className="container">
@@ -174,7 +184,17 @@ function App() {
                 >
                   Login
                 </button>
+
+                {/* Dark mode toggle */}
+                <button
+                  className="nav-btn nav-btn-outline"
+                  type="button"
+                  onClick={() => setDarkMode((prev) => !prev)}
+                >
+                  {darkMode ? 'Light mode' : 'Dark mode'}
+                </button>
               </nav>
+
             </div>
           </div>
         </div>
@@ -504,8 +524,7 @@ function App() {
           </div>
         </div>
       </article>
-
-    </>
+    </div>
   );
 }
 

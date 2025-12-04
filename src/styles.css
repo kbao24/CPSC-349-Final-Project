@@ -589,3 +589,188 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* === App wrapper for light / dark === */
+
+.app {
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  color: #111827;
+}
+
+.app-dark {
+  background-color: #020617;
+  color: #e5e7eb;
+}
+
+.app-dark .container {
+  background-color: transparent;
+}
+
+.app-dark .header.app-header {
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.8);
+}
+
+.app-dark .modal-card {
+  background-color: #020617;
+  color: #e5e7eb;
+}
+
+/* === Drag & drop image area === */
+
+.dropzone {
+  border: 2px dashed #cbd5f5;
+  border-radius: 10px;
+  padding: 0.75rem;
+  background-color: #ffffff;
+  text-align: center;
+  transition: border-color 0.2s ease, background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.dropzone-text {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.dropzone-image {
+  width: 100%;
+  border-radius: 8px;
+  max-height: 260px;
+  object-fit: cover;
+}
+
+.dropzone-dragging {
+  border-color: #4f46e5;
+  background-color: #eef2ff;
+  transform: translateY(-2px);
+}
+
+/* Dark mode dropzone tweak */
+.app-dark .dropzone {
+  background-color: #020617;
+  border-color: #475569;
+}
+
+.app-dark .dropzone-dragging {
+  background-color: #0f172a;
+}
+
+/* === Validation error styles === */
+
+.input-error {
+  border-color: #dc2626 !important;
+  outline-color: #dc2626 !important;
+}
+
+.input-error-text {
+  margin: 0.15rem 0 0.5rem;
+  font-size: 0.8rem;
+  color: #b91c1c;
+}
+
+/* Dark mode tweak */
+.app-dark .input-b-color {
+  background-color: #020617;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+/* Save & delete buttons already styled; they will inherit dark text correctly */
+.app-dark .save-button {
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.6);
+}
+
+/* You can also invert entries cards in dark mode if you want: */
+.app-dark .entry-card {
+  background-color: #020617;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.9);
+}
+
+.app-dark .feature-card {
+  background-color: #020617;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.9);
+}
+
+/* ==== Dark-mode tweaks for homepage text ==== */
+
+.app-dark .hero-kicker {
+  color: #93c5fd; /* soft blue accent */
+}
+
+.app-dark .hero-title {
+  color: #f9fafb; /* near-white */
+}
+
+.app-dark .hero-subtitle {
+  color: #e5e7eb;
+}
+
+.app-dark .features-title {
+  color: #f9fafb;
+}
+
+.app-dark .features-subtitle {
+  color: #9ca3af;
+}
+
+.app-dark .features-section {
+  border-top-color: #1f2937;
+}
+
+.app-dark .feature-heading {
+  color: #e5e7eb;
+}
+
+.app-dark .feature-text {
+  color: #9ca3af;
+}
+
+.app-dark .feature-icon {
+  background-color: #111827;
+  color: #93c5fd;
+}
+
+.app-dark .feature-icon-danger {
+  background-color: #7f1d1d;
+  color: #fecaca;
+}
+
+/* ==== Dark-mode tweaks for hero carousel ==== */
+
+.app-dark .hero-carousel {
+  background-color: #020617; /* deep navy */
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+}
+
+.app-dark .hero-slide {
+  background-color: #020617;
+}
+
+.app-dark .hero-slide-caption {
+  background: linear-gradient(180deg, #020617, #111827);
+  color: #f9fafb;
+}
+
+.app-dark .hero-slide-caption p {
+  color: #e5e7eb;
+}
+
+.app-dark .hero-carousel-btn {
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+.app-dark .hero-carousel-btn:hover {
+  background-color: #1f2937;
+}
+
+.app-dark .hero-dot {
+  background-color: #4b5563;
+}
+
+.app-dark .hero-dot-active {
+  background-color: #e5e7eb;
+}
+
