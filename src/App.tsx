@@ -96,17 +96,17 @@ function App() {
     {
       title: 'Capture your coding thoughts',
       text: 'Log bugs, breakthroughs, and notes before you forget them.',
-      imageUrl: './images/stock-image-all-one-place.jpg',
+      imageUrl: './stock-image-all-one-place.jpg',
     },
     {
       title: 'Stay organized over time',
       text: 'Scroll back through your entries to see how your skills grow.',
-      imageUrl: 'images/organized.jpg',
+      imageUrl: './organized.jpg',
     },
     {
       title: 'All your entries in one place',
       text: 'Create, read, update, and delete blog-style posts in seconds.',
-      imageUrl: './images/image.png',
+      imageUrl: './image.png',
     },
   ];
 
